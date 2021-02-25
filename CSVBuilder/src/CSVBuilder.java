@@ -16,10 +16,10 @@ public class CSVBuilder {
             long wordCount = textParser.getWordCount();
             Map<String, Long> wordMap = textParser.getWordMap();
             FileWriter writer = new FileWriter(_outputFilePath);
-            writer.write("Word;Frequency;Percentage\n");
+            writer.write("Word,Frequency,Percentage\n");
             for(Map.Entry entry : wordMap.entrySet()) {
                 double frequency = ((Number)entry.getValue()).doubleValue() / wordCount;
-                writer.write(entry.getKey() + ";" + entry.getValue() + ";" + frequency * 100 + "\n");
+                writer.write(entry.getKey() + "," + entry.getValue() + "," + frequency * 100 + "\n");
             }
             writer.close();
         } catch(IOException e) {
